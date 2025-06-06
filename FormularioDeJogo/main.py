@@ -8,8 +8,6 @@ class FormularioApp(QMainWindow):
         super().__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-
-        self.ui.lineEdit_idade.setValidator(QIntValidator(0, 150))
         
         self.ui.pushButton_salvar.clicked.connect(self.enviar_dados)
         self.ui.pushButton_apagar.clicked.connect(self.limpar_campos)
@@ -18,7 +16,8 @@ class FormularioApp(QMainWindow):
         nomeCompleto = self.ui.lineEdit_nomeCompleto.text()
         nomeUsuario = self.ui.lineEdit_nomeUsuario.text()
         email = self.ui.lineEdit_email.text()
-        idade = self.ui.lineEdit_idade.text()
+        idade_texto = self.ui.lineEdit_idade.text()
+        idade = int(idade_texto)
         senha = self.ui.lineEdit_senha.text()
         personagem = "Bmo" if self.ui.radioButton_personagem1.isChecked() else "Finn" if self.ui.radioButton_personagem2.isChecked() else "Jake" if self.ui.radioButton_personagem3.isChecked() else "Princesa Jujuba" if self.ui.radioButton_personagem4.isChecked() else "Marceline" if self.ui.radioButton_personagem5.isChecked else "Não informado"
 
